@@ -13,6 +13,8 @@ angular.module('connectFourApp')
     var dimensions = [6,7]
 
     var export_ = {
+      players: ["one", "two"],
+      winnerCells: [[ [0,0], [0,1], [0,2], [0,3], [0,4] ]],
       ranges: function(){
         return [_.range(1,dimensions[0]+1).reverse(),_.range(1,dimensions[1]+1)]
       },

@@ -3,15 +3,16 @@
 <div class="board">
   <div ng-repeat="y in settings.ranges()[0]">
     <div ng-repeat="x in settings.ranges()[1]">
-      <div class="tale"
-            ng-click="settings.fill(x)">
-            {{ x }} - {{ y }} : {{ settings.board[x-1][y-1] }}</div>
+      <div class="cell">
+        <div class="tale {{ settings.board[x-1][y-1] }}"
+              ng-click="game.fill(x, game.player());
+                        game.checkWin()">
+          {{ x }} - {{ y }} : {{ settings.board[x-1][y-1] }}
+              </div>
+      </div>
     </div>
   </div>
 </div>
-
-<pre>{{ settings.board | json }}</pre>
-
 <!--
 ng-class="{'won': checkWin(),
            'empty': !gameOver()}"

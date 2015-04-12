@@ -1,10 +1,29 @@
 .board {
   width: 400px;
+  background: green;
+  border: 4px black;
 }
 .tale {
-  background: red;
   width: 50px;
   height: 50px;
   margin: 3px;
   float: left;
+}
+
+.one {
+  background: #006699;
+}
+
+.two {
+  background: #FFFF81;
+}
+
+.one, .two {
+  box-shadow: 5px rgba(0,0,0,0.75);
+  border-radius: 50%;
+  position: relative;
+}
+
+.cell {
+  border: 3px black;
 }
