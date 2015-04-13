@@ -1,30 +1,40 @@
 .board {
-  width: 400px;
-  background: green;
-  border: 4px black;
+  width: 500px;
+  height: 430px;
 }
 .tale {
   width: 50px;
   height: 50px;
   margin: 3px;
-  float: left;
 }
 
 .one {
-  background: #006699;
+  background: #001f3f;
 }
 
 .two {
-  background: #FFFF81;
+  background: #FF4136;
 }
 
-.one, .two {
-  padding: 3px;
+.empty {
+  background: white;
+}
+
+.one, .two, .empty{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
   box-shadow: 5px rgba(0,0,0,0.75);
   border-radius: 50%;
-  position: relative;
+  /*position: relative;*/
 }
 
 .cell {
-  border: 3px black;
+  float: left;
+  width: 14%;
+  float: left;
+  background: #3D9970;
+  z-index: -1;
+  border: 1px black dotted;
 }
