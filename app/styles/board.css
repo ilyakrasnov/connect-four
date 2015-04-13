@@ -19,6 +19,7 @@
 }
 
 .one, .two {
+  padding: 3px;
   box-shadow: 5px rgba(0,0,0,0.75);
   border-radius: 50%;
   position: relative;
