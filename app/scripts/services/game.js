@@ -28,11 +28,11 @@ angular.module('connectFourApp')
       },
       checkWin: function(){
         var board = Settings.board;
+        console.log(board);
         console.log(board[0][0] != "" &&
                 board[0][0] == board[0][1] &&
                 board[0][1] == board[0][2] &&
-                board[0][2] == board[0][3] &&
-                board[0][3] == board[0][4])
+                board[0][2] == board[0][3])
       }
     };
 

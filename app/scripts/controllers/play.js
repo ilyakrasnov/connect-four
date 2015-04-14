@@ -11,5 +11,6 @@ angular.module('connectFourApp')
   .controller('PlayCtrl', function ($scope, Settings, Tales, Game) {
     $scope.settings = Settings;
     $scope.game = Game;
+    $scope.tales = Tales;
 
   });

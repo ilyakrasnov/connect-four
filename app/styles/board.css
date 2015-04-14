@@ -1,13 +1,26 @@
+/* Basic board */
+
 .board {
-  width: 500px;
-  height: 430px;
-}
-.tale {
-  width: 50px;
-  height: 50px;
-  margin: 3px;
+  border: 1px solid navy;
+  height: 370px;
+  width: 430px;
+  border: 5px solid #3D9970;
+  border-bottom: 15px solid #3D9970;
+  background: honeydew;
+
+  -webkit-box-shadow: 6px 9px 31px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 6px 9px 31px 0px rgba(0,0,0,0.75);
+  box-shadow: 6px 9px 31px 0px rgba(0,0,0,0.75);
 }
 
+.cell {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+
+/* Player */
 .one {
   background: #001f3f;
 }
@@ -16,24 +29,76 @@
   background: #FF4136;
 }
 
-.empty {
-  background: white;
-}
-
-.one, .two, .empty{
+.one, .two{
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  top: 9px;
 
+  width: 47px;
+  height: 47px;
+  margin: 0 auto;
   box-shadow: 5px rgba(0,0,0,0.75);
   border-radius: 50%;
-  /*position: relative;*/
 }
 
-.cell {
+
+/* Holes */
+
+.hole {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  margin: 0 auto;
+  z-index: 500;
+}
+
+.top-left, .top-right, .bottom-left, .bottom-right {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  z-index: 1;
+}
+
+.top-left, .top-right {
+  position: relative;
+  top: 0px;
+}
+
+.top-left {
+  left: 0px;
   float: left;
-  width: 14%;
+
+  border-width: 30px 30px 0 0;
+  border-color: #3D9970 transparent transparent transparent;
+}
+
+.top-right {
+  right: 0px;
+  float: right;
+
+  border-width: 0 30px 30px 0;
+  border-color: transparent #3D9970 transparent transparent;
+}
+
+.bottom-left, .bottom-right {
+  position: relative;
+}
+
+.bottom-left {
+  left: 0px;
+  top: 0px;
   float: left;
-  background: #3D9970;
-  z-index: -1;
+  bottom-left: 0px;
+
+  border-width: 30px 0 0 30px;
+  border-color: transparent transparent transparent #3D9970;
+}
+
+.bottom-right {
+  right: 0px;
+  top: 0px;
+  float: right;
+
+  border-width: 0 0 30px 30px;
+  border-color: transparent transparent #3D9970 transparent;
 }
