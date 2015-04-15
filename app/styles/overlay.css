@@ -1,0 +1,43 @@
+.gameOver {
+  position: relative;
+  top: -340px;
+  left: 64px;
+  height: 302px;
+  width: 300px;
+  /*background: rgba(122, 154, 149, 0.95);*/
+  /*background: rgba(250, 220, 0, 0.95);*/
+  background: rgba(133, 20, 75, 0.95);
+
+  text-align: center;
+  color: white;
+  z-index: 500;
+}
+
+.buttons {
+  position: relative;
+  top: 25%;
+  transform: translateY(30%);
+}
+
+.btn-play-again, .reset {
+  width: 80%;
+  font-size: 25px;
+  margin: 15px auto 15px auto;
+  -webkit-box-shadow: 7px 4px 32px -8px rgba(0,0,0,0.55);
+  -moz-box-shadow: 7px 4px 32px -8px rgba(0,0,0,0.55);
+  box-shadow: 7px 4px 32px -8px rgba(0,0,0,0.55);
+}
+
+.btn-play-again {
+  background-color: rgba(239, 109, 59, 1);
+}
+
+.reset {
+  background-color: #3F2860;
+  margin-left: auto;
+}
+
+.gameResults {
+  font-size: 20px;
+  padding-top: 15px;
+}

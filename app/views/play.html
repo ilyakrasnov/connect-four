@@ -1,23 +1,35 @@
-<h1>Play Connect Four</h1>
+<h2>Play Connect Four</h2>
 
-
-<div class="board">
-  <div ng-repeat="y in settings.ranges()[0]">
-    <div ng-repeat="x in settings.ranges()[1]">
-      <div class="cell" ng-click="game.fill(x, game.player()); game.checkWin()">
-            <div class="top-left"></div>
-            <div class="top-right"></div>
-            <div class="bottom-left"></div>
-            <div class="bottom-right"></div>
-              <div class="{{ settings.board[x-1][y-1] }}"
-                    ng-class="{'animated bounceInDown': settings.board[x-1][y-1]}">
-                <!-- {{ x-1 }} - {{ y-1 }} --> <!-- : {{ settings.board[x-1][y-1] }} -->
-              </div>
-            <svg class="hole" height="100" width="100">
-              <circle cx="30" cy="30" r="25" stroke="#3D9970" stroke-width="10" fill="transparent" />
-            </svg>
+<div class="container">
+  <div class="board">
+    <div ng-repeat="y in settings.ranges()[0]">
+      <div ng-repeat="x in settings.ranges()[1]">
+        <div class="cell" ng-click="game.fill(x, game.player()); game.checkWin()">
+              <div class="top-left"></div>
+              <div class="top-right"></div>
+              <div class="bottom-left"></div>
+              <div class="bottom-right"></div>
+                <div class="{{ settings.board[x-1][y-1] }}"
+                      ng-class="{'animated bounceInDown': settings.board[x-1][y-1]}">
+                  <!-- {{ x-1 }} - {{ y-1 }} --> <!-- : {{ settings.board[x-1][y-1] }} -->
+                </div>
+              <svg class="hole" height="100" width="100">
+                <circle cx="30" cy="30" r="25" stroke="#3D9970" stroke-width="10" fill="transparent" />
+              </svg>
+        </div>
       </div>
     </div>
   </div>
-  </br>
+
+  <div class="gameOver">
+    <div class="gameResults">
+     WON!
+    </div>
+    <div class="buttons">
+        <div class="btn-play-again" ng-click="game.resetMatch()">Play again</div>
+        <div class="reset" ng-click="game.resetGame()">Start all over</div>
+    </div>
+
+
+  </div>
 </div>
