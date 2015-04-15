@@ -4,7 +4,7 @@
 <div class="board">
   <div ng-repeat="y in settings.ranges()[0]">
     <div ng-repeat="x in settings.ranges()[1]">
-      <div class="cell" ng-click="game.fill(x, game.player())">
+      <div class="cell" ng-click="game.fill(x, game.player()); game.checkWin()">
             <div class="top-left"></div>
             <div class="top-right"></div>
             <div class="bottom-left"></div>
@@ -17,19 +17,6 @@
               <circle cx="30" cy="30" r="25" stroke="#3D9970" stroke-width="10" fill="transparent" />
             </svg>
       </div>
-
-
-
-
-
-    <!-- <cell>
-        <div class="{{ settings.board[x-1][y-1] }}"
-              ng-class="{'animated bounceInDown': settings.board[x-1][y-1]}"
-              ng-click="game.fill(x, game.player())">
-          {{ x-1 }} - {{ y-1 }} : {{ settings.board[x-1][y-1] }}
-              </div>
-    </cell> -->
-
     </div>
   </div>
   </br>

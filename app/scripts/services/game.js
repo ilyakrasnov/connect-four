@@ -11,6 +11,37 @@ angular.module('connectFourApp')
   .factory('Game', function (Settings) {
     // Service logic
     // ...
+    var board = Settings.board;
+
+    var checkLine = function(line) {
+      var streak = 0;
+      var current = "";
+      var win = false;
+
+      _.each(line, function(el){
+         if (el != undefined && el == current) {
+             streak +=1;
+         } else {
+             current = el;
+             streak = 1;
+         }
+         if (streak == 4) win = true;
+       });
+      return win;
+    }
+
+    var checkAll = function(){
+      var transposedBoard_for_rows = _.zip.apply(null,board);
+      var diagonals = [];
+      var combinations = [board, transposedBoard_for_rows, diagonals];
+
+      // Is there any line set (row, cols, diagonals) that return true
+      if (_.find(
+        combinations, function(board){
+          // Is there any line that returns true
+            if (_.find(board, function(line){ return checkLine(line) }) != undefined) return true;
+        }) != undefined) return true;
+    }
 
     var export_ = {
 
@@ -27,14 +58,9 @@ angular.module('connectFourApp')
         return Settings.players[this.moves()%2];
       },
       checkWin: function(){
-        var board = Settings.board;
-        console.log(board);
-        console.log(board[0][0] != "" &&
-                board[0][0] == board[0][1] &&
-                board[0][1] == board[0][2] &&
-                board[0][2] == board[0][3])
+        console.log(checkAll());
       }
-    };
+    }
 
     // Public API here
     return export_;
