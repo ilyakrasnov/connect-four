@@ -32,7 +32,7 @@ angular.module('connectFourApp')
 
     var checkAll = function(){
       var transposedBoard_for_rows = _.zip.apply(null,board);
-      var diagonals = [];
+      var diagonals = calc_diags();
       var combinations = [board, transposedBoard_for_rows, diagonals];
 
       // Is there any line set (row, cols, diagonals) that return true
@@ -43,10 +43,43 @@ angular.module('connectFourApp')
         }) != undefined) return true;
     }
 
+    var calc_diags = function(){
+        var diags1 = [];
+        var diags2 = [];
+
+        // Helper to get the longest column for proper iteration
+        var lengths = _.map(board, function(col){return _.compact(col).length});
+        var n = board[_.indexOf(lengths, _.max(lengths))].length;
+
+        var m = board.length
+
+        // Top left -> right down diags
+        for (var slice = 0; slice < (m+n-1); slice++){
+            var z1 = slice < n ? 0 : slice - n + 1;
+            var z2 = slice < m ? 0 : slice - m + 1;
+            diags1.push([])
+            for (var j = slice - z2; j >= z1; --j) {
+                    diags1[slice].push(board[j][slice - j]);
+            }
+
+        }
+        // Down left -> top right diags
+        for (var slice = 0; slice < (m+n-1); slice++){
+            var z1 = slice < n ? 0 : slice - n + 1;
+            var z2 = slice < m ? 0 : slice - m + 1;
+            diags2.push([])
+            for (var j = slice - z2; j >= z1; --j) {
+                    diags2[slice].push(board[m-j-1][slice - j]);
+            }
+
+        }
+        return diags1.concat(diags2);
+    }
+
+
     var export_ = {
 
       fill: function(x, player){
-        var board = Settings.board;
         if (board[x-1].length < 6) {
           board[x-1].push(player);
         }
