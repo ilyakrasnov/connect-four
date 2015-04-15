@@ -25,7 +25,7 @@ angular.module('connectFourApp')
              current = el;
              streak = 1;
          }
-         if (streak == 4) win = true;
+         if (streak == 2) win = true;
        });
       return win;
     }
@@ -80,7 +80,7 @@ angular.module('connectFourApp')
     var export_ = {
 
       fill: function(x, player){
-        if (board[x-1].length < 6) {
+        if (!this.checkWin() && board[x-1].length < 6) {
           board[x-1].push(player);
         }
       },
@@ -91,8 +91,12 @@ angular.module('connectFourApp')
         return Settings.players[this.moves()%2];
       },
       checkWin: function(){
-        console.log(checkAll());
+        return checkAll();
+      },
+      playAgain: function(){
+        Settings.resetBoard();
       }
+
     }
 
     // Public API here

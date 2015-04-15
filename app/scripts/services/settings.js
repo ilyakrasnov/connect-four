@@ -23,6 +23,9 @@ angular.module('connectFourApp')
       fill: function(x){
         this.board[x-1].push("X");
         console.log(this.board);
+      },
+      resetBoard: function(){
+        this.board = _.map([1,2,3,4,5,6,7],function(){return []});
       }
     };
 

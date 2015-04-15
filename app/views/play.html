@@ -4,7 +4,7 @@
   <div class="board">
     <div ng-repeat="y in settings.ranges()[0]">
       <div ng-repeat="x in settings.ranges()[1]">
-        <div class="cell" ng-click="game.fill(x, game.player()); game.checkWin()">
+        <div class="cell" ng-click="game.fill(x, game.player())">
               <div class="top-left"></div>
               <div class="top-right"></div>
               <div class="bottom-left"></div>
@@ -21,13 +21,13 @@
     </div>
   </div>
 
-  <div class="gameOver">
+  <div class="gameOver" ng-show="game.checkWin()">
     <div class="gameResults">
-     WON!
+     <!-- WON! -->
     </div>
     <div class="buttons">
-        <div class="btn-play-again" ng-click="game.resetMatch()">Play again</div>
-        <div class="reset" ng-click="game.resetGame()">Start all over</div>
+        <div class="btn-play-again" ng-click="game.playAgain()">Play again</div>
+        <div class="reset" ng-click="game.playAgain()">Start all over</div>
     </div>
 
 
