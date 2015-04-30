@@ -14,15 +14,18 @@ angular.module('connectFourApp')
 
     var export_ = {
       players: ["one", "two"],
-      winnerCells: [[ [0,0], [0,1], [0,2], [0,3], [0,4] ]],
       ranges: function(){
         return [_.range(1,dimensions[0]+1).reverse(),_.range(1,dimensions[1]+1)]
       },
       // TODO: calculate array automatically from dimensions
       board: _.map([1,2,3,4,5,6,7],function(){return []}),
+
+      // 0: height - 1: width
+      getBoardDimension: function(n){
+        return _.range(1,dimensions[n]+1).reverse()
+      },
       fill: function(x){
         this.board[x-1].push("X");
-        console.log(this.board);
       },
       resetBoard: function(){
         this.board = _.map([1,2,3,4,5,6,7],function(){return []});

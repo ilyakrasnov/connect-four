@@ -39,7 +39,7 @@ angular.module('connectFourApp')
       if (_.find(
         combinations, function(board){
           // Is there any line that returns true
-            if (_.find(board, function(line){ return checkLine(line) }) != undefined) return true;
+            if (_.find(board, checkLine)) return true;
         }) != undefined) return true;
     }
 
@@ -61,8 +61,8 @@ angular.module('connectFourApp')
             for (var j = slice - z2; j >= z1; --j) {
                     diags1[slice].push(board[j][slice - j]);
             }
-
         }
+
         // Down left -> top right diags
         for (var slice = 0; slice < (m+n-1); slice++){
             var z1 = slice < n ? 0 : slice - n + 1;
@@ -71,7 +71,6 @@ angular.module('connectFourApp')
             for (var j = slice - z2; j >= z1; --j) {
                     diags2[slice].push(board[m-j-1][slice - j]);
             }
-
         }
         return diags1.concat(diags2);
     }
