@@ -25,7 +25,7 @@ angular.module('connectFourApp')
              current = el;
              streak = 1;
          }
-         if (streak == 2) win = true;
+         if (streak == 4) win = true;
        });
       return win;
     }
